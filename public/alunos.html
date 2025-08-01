@@ -1,22 +1,52 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/alunos.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/global.css" />
+    <link rel="stylesheet" href="./style/alunos.css" />
+
+    <link rel="icon" type="image/x-icon" href="image/code-lab-logo.jpeg" />
     <title>Alunos</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <p>Header</p>
+      <div class="logo">
+        <img src="./image/code-lab-logo.jpeg" alt="CodeLab Logo" />
+        <span>Code Lab Leste</span>
+      </div>
+      <button class="toggle-tema">
+        <img src="./image/icons/sun.svg" alt="Ícone Sol" class="icone-tema" />
+      </button>
     </header>
 
     <main>
-        <p>Main</p>
+      <div class="volta-home">
+        <a href="index.html">← Voltar para a Home</a>
+      </div>
+
+      <section id="lista-alunos" class="lista-alunos">
+        <!-- Alunos serão inseridos aqui -->
+      </section>
+
+      <p id="sem-alunos" class="sem-alunos" style="display: none">
+        Nenhum aluno cadastrado.
+      </p>
+
+      <button id="btn-deletar" onclick="deletaTodoMundo()">
+        🗑️ Deletar Tudo
+      </button>
     </main>
 
     <footer>
-        <p>Footer</p>
+      <p>Desenvolvido por Kauã Amaral © 2025</p>
+      <button class="toggle-tema">
+        <img src="./image/icons/sun.svg" alt="Ícone Sol" class="icone-tema" />
+      </button>
     </footer>
-</body>
+
+    <script src="./script/alunos.js"></script>
+    <script src="./script/tema.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </body>
 </html>

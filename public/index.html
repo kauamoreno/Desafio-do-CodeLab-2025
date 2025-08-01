@@ -1,23 +1,109 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/index.css">
-    <title>Index</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/global.css" />
+    <link rel="stylesheet" href="./style/index.css" />
+
+    <link rel="icon" type="image/x-icon" href="image/code-lab-logo.jpeg" />
+    <title>Home</title>
+  </head>
+  <body>
     <header>
-        <p>Header</p>
+      <div class="logo">
+        <img src="./image/code-lab-logo.jpeg" alt="CodeLab Logo" />
+        <span>Code Lab Leste</span>
+      </div>
+      <button class="toggle-tema">
+        <img src="./image/icons/sun.svg" alt="Ícone Sol" class="icone-tema" />
+      </button>
     </header>
 
     <main>
-        <p>Main</p>
-        <a href="./alunos.html">Alunos</a>
+      <form onsubmit="event.preventDefault(); enviarDados()" class="form">
+        <div class="input-box">
+          <label>Nome Completo</label>
+          <input
+            type="text"
+            id="nome-completo"
+            placeholder="ex. Code Lab Leste"
+            autocomplete="off"
+            required
+          />
+        </div>
+
+        <div class="input-box">
+          <label>Nota 1</label>
+          <input
+            type="number"
+            id="nota1"
+            name="nota1"
+            min="0"
+            max="10"
+            step="0.5"
+            placeholder="0 a 10"
+            required
+          />
+        </div>
+
+        <div class="input-box">
+          <label>Nota 2</label>
+          <input
+            type="number"
+            id="nota2"
+            name="nota1"
+            min="0"
+            max="10"
+            step="0.5"
+            placeholder="0 a 10"
+            required
+          />
+        </div>
+
+        <input type="submit" value="Cadastrar" class="btnForm" />
+      </form>
+
+      <div class="alunos-pagina">
+        <a href="alunos.html">Ir para Alunos cadastrados →</a>
+      </div>
     </main>
 
     <footer>
-        <p>Footer</p>
+      <p>Desenvolvido por Kauã Amaral © 2025</p>
+      <button class="toggle-tema">
+        <img src="./image/icons/sun.svg" alt="Ícone Sol" class="icone-tema" />
+      </button>
     </footer>
-</body>
+
+    <script src="./script/index.js"></script>
+    <script src="./script/tema.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="module" src="./script/estima_nota.js"></script>
+    <script>
+      /**
+       * A implementação do DOM esta no HTML 
+       * pois nao teria como fazer testes na
+       * funcao regressaoLinear(dadosDB)
+       * 
+       * Nao convem criar outro arquivo JS
+       * para uma simples manipulacao
+      **/
+      let inputNota1 = document.getElementById('nota1');
+      let inputNota2 = document.getElementById('nota2');
+
+      // Chamando a func estimaNota2 e atribuindo no placeholder da nota2
+      inputNota1.addEventListener('input', async () => {
+        let notaEstimada = await estimaNota2(inputNota1.value);
+
+        if (notaEstimada != null) {
+          inputNota2.placeholder = 'Nota Estimada: ' + notaEstimada;
+        }
+      });
+    </script>
+  </body>
 </html>

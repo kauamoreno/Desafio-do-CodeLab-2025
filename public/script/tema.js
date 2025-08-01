@@ -1,19 +1,33 @@
-const btnTema = document.getElementById('toggle-tema');
+const btnTema = document.querySelectorAll('.toggle-tema');
 
-btnTema.addEventListener('click', () => {
+const iconeSol = '../image/icons/sun.svg';
+const iconeLua = '../image/icons/moon.svg';
 
-  //.toggle romove se presente, caso contrario adiciona
-  document.body.classList.toggle('tema-escuro');
+function atualizarTema(isEscuro) {
+  // Atualiza a classe do body e salva no localStorage
+  document.body.classList.toggle('tema-escuro', isEscuro);
+  localStorage.setItem('tema', isEscuro ? 'escuro' : 'claro');
 
-  // Salvar no localStorage
-  const isDark = document.body.classList.contains('tema-escuro');
-  localStorage.setItem('tema', isDark ? 'escuro' : 'claro');
+  // Atualiza todos os ícones
+  btnTema.forEach((btn) => {
+    const iconeTema = btn.querySelector('.icone-tema');
+    if (iconeTema) {
+      iconeTema.src = isEscuro ? iconeSol : iconeLua;
+    }
+  });
+}
+
+// Clique em qualquer botão ativa/desativa o tema e atualiza todos
+btnTema.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const isEscuro = !document.body.classList.contains('tema-escuro');
+    atualizarTema(isEscuro);
+  });
 });
 
-// Aplicar tema salvo (ao carregar a página)
+// Ao carregar a página, aplicar o tema salvo
 window.addEventListener('DOMContentLoaded', () => {
   const temaSalvo = localStorage.getItem('tema');
-  if (temaSalvo === 'escuro') {
-    document.body.classList.add('tema-escuro');
-  } 
+  const isEscuro = temaSalvo === 'escuro';
+  atualizarTema(isEscuro);
 });
