@@ -77,14 +77,4 @@ function regressaoLinear(dadosDB){
   return { a, b };
 }
 
-let inputNota1 = document.getElementById('nota1');
-let inputNota2 = document.getElementById('nota2');
-
-// Chamando a func estimaNota2 e atribuindo no placeholder da nota2
-inputNota1.addEventListener('input', async () => {
-  let notaEstimada = await estimaNota2(inputNota1.value)
-
-  if(notaEstimada != null){
-    inputNota2.placeholder = "Nota Estimada: " + notaEstimada 
-  }
-})
+module.exports = { regressaoLinear };

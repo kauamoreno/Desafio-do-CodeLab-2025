@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../app.js');
+const app = require('../src/server');
 
 describe('Testando CRD /notas', () => {
   describe('400 - Variações de notas como strings não numericas e numeros n permitidos', () => {
