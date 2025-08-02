@@ -1,4 +1,4 @@
-const { regressaoLinear } = require('../public/script/estima_nota');
+const { regressaoLinear } = require('../src/controllers/estimaNota2.controller');
 
 describe('regressaoLinear()', () => {
   it('deve calcular a e b corretamente com dados simulados', async () => {

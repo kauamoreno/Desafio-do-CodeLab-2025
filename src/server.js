@@ -5,6 +5,7 @@ const cors = require('cors');
 require('./service/notas.service') // Json-server
 
 const routesNotas = require('./routes/notas.routes');
+const routesEstimaNota2 = require('./routes/estimaNota2.routes');
 
 const app = express();
 const PORT = 3000;
@@ -16,6 +17,7 @@ app.use(express.static(path.join(__dirname, '../public'))); // Serve arquivos es
 
 // Rotas
 app.use(routesNotas);
+app.use(routesEstimaNota2);
 
 // Inicia o servidor
 app.listen(PORT, () => {

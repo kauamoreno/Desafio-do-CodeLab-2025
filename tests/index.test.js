@@ -19,7 +19,7 @@ describe('Testando CRD /notas', () => {
     ];
 
     test.each(casos)('$descricao', async ({ entrada }) => {
-      const res = await request(app).post('/notas').send(entrada);
+      const res = await request(app).post('/api/notas').send(entrada);
       expect(res.statusCode).toBe(400);
     });
   });
@@ -54,7 +54,7 @@ describe('Testando CRD /notas', () => {
     ];
 
     test.each(casos)('$descricao', async ({ entrada, esperado }) => {
-      const res = await request(app).post('/notas').send(entrada);
+      const res = await request(app).post('/api/notas').send(entrada);
 
       expect(res.statusCode).toBe(201);
       expect(res.body).toHaveProperty('usuario');
@@ -64,7 +64,7 @@ describe('Testando CRD /notas', () => {
   });
 
   it('Deve listar notas', async () => {
-    const res = await request(app).get('/notas');
+    const res = await request(app).get('/api/notas');
     expect(res.statusCode).toBe(200);
     expect(Array.isArray(res.body)).toBe(true);
   });
@@ -79,14 +79,14 @@ describe('Testando CRD /notas', () => {
       .send({ nome: 'Teste 2', notas: [7, 8] });
 
     // Agora chama o endpoint de deletar
-    const res = await request(app).delete('/notas-delete');
+    const res = await request(app).delete('/api/notas-delete');
 
     // Verifica se a resposta foi sucesso
     expect(res.statusCode).toBe(200);
     expect(res.body).toHaveProperty('mensagem', 'Notas apagadas com sucesso.');
 
     // Verifica se realmente apagou todas
-    const resFinal = await request(app).get('/notas');
+    const resFinal = await request(app).get('/api/notas');
     expect(resFinal.statusCode).toBe(200);
     expect(resFinal.body).toEqual([]);
   });
