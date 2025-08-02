@@ -6,8 +6,8 @@ router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-router.get('/notas', notasController.getNotas);
-router.post('/notas', notasController.addNota);
-router.delete('/notas-delete', notasController.deleteNotas);
+router.get('/api/notas', notasController.getNotas);
+router.post('/api/notas', notasController.addNota);
+router.delete('/api/notas-delete', notasController.deleteNotas);
 
 module.exports = router;

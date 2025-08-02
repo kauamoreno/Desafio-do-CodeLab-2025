@@ -8,7 +8,7 @@ function enviarDados() {
   nota2 = nota2Input.value;
 
   axios
-    .post('http://localhost:3000/notas', {
+    .post('http://localhost:3000/api/notas', {
       nome: nome,
       notas: [nota1, nota2],
     })
