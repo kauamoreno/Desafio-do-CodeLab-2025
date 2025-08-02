@@ -84,26 +84,5 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script type="module" src="./script/estima_nota.js"></script>
-    <script>
-      /**
-       * A implementação do DOM esta no HTML 
-       * pois nao teria como fazer testes na
-       * funcao regressaoLinear(dadosDB)
-       * 
-       * Nao convem criar outro arquivo JS
-       * para uma simples manipulacao
-      **/
-      let inputNota1 = document.getElementById('nota1');
-      let inputNota2 = document.getElementById('nota2');
-
-      // Chamando a func estimaNota2 e atribuindo no placeholder da nota2
-      inputNota1.addEventListener('input', async () => {
-        let notaEstimada = await estimaNota2(inputNota1.value);
-
-        if (notaEstimada != null) {
-          inputNota2.placeholder = 'Nota Estimada: ' + notaEstimada;
-        }
-      });
-    </script>
   </body>
 </html>

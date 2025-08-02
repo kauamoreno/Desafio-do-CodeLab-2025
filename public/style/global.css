@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variáveis de tema */
+:root {
+  /* Tema claro */
+  --header-bg: #ffffff;
+  --header-text: #222222;
+  --btn-bg: #e0e0e0;
+  --btn-text: #222222;
+  --background: #fafafa;
+  --footer-bg: #f5f5f5;
+  --link-color: #1a73e8;
+
+  /* Form */
+  --input-bg: #ffffff;
+  --input-border: #ccc;
+  --input-text: #222222;
+  --input-placeholder: #888888;
+
+  --btn-bg-primary: #1a73e8;
+  --btn-text-primary: #ffffff;
+}
+
+body.tema-escuro {
+  --header-bg: #121212;
+  --header-text: #e0e0e0;
+  --btn-bg: #2a2a2a;
+  --btn-text: #e0e0e0;
+  --background: #181818;
+  --footer-bg: #222222;
+  --link-color: #4a90e2;
+
+  --input-bg: #2a2a2a;
+  --input-border: #555555;
+  --input-text: #e0e0e0;
+  --input-placeholder: #999999;
+
+  --btn-bg-primary: #4a90e2;
+  --btn-text-primary: #ffffff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--header-text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header, footer {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+}
+
+footer {
+  justify-content: space-between;
+  
+  margin-top: auto;
+  text-align: center;
+  font-size: 0.9rem;
+  box-shadow: 0 -1px 3px rgb(0 0 0 / 0.1);
+}
+
+footer p {
+  text-align: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--btn-bg-primary);
+  color: var(--btn-text-primary);
+}
+
+input, textarea, select {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--input-text);
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--input-placeholder);
+}
+
+.toggle-tema {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  transition: background-color 0.3s ease;
+  outline: none;
+}
+
+.toggle-tema:hover {
+  background-color: var(--background);
+}
+
+.icone-tema {
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.3s ease;
+}

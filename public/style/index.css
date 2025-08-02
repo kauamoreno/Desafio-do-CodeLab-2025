@@ -1,4 +1,66 @@
-* {
-    padding: 0;
-    margin: 0;
+main {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.form {
+  width: 500px;
+  margin: 20px auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: var(--header-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .form {
+    width: 100%;
+    padding: 15px;
+  }
+  main {
+    margin: 10px;
+  }
+  .alunos-pagina {
+    margin-bottom: 30px;
+  }
+  .meu-alerta {
+    width: 250px;
+  }
+}
+
+.input-box label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  display: block;
+  color: var(--header-text);
+}
+
+.btnForm {
+  background-color: var(--btn-bg-primary);
+  color: var(--btn-text-primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.btnForm:hover {
+  background-color: #1669c1;
+}
+
+.alunos-pagina {
+  margin-top: 2rem;
+  text-align: end;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
 }

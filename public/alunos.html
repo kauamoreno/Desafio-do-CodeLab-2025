@@ -25,15 +25,11 @@
         <a href="index.html">← Voltar para a Home</a>
       </div>
 
-      <section id="lista-alunos" class="lista-alunos">
-        <!-- Alunos serão inseridos aqui -->
-      </section>
-
       <p id="sem-alunos" class="sem-alunos" style="display: none">
         Nenhum aluno cadastrado.
       </p>
 
-      <button id="btn-deletar" onclick="deletaTodoMundo()">
+      <button id="btn-deletar" style="display: none" onclick="deletaPopup()">
         🗑️ Deletar Tudo
       </button>
     </main>
@@ -48,5 +44,8 @@
     <script src="./script/alunos.js"></script>
     <script src="./script/tema.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>
