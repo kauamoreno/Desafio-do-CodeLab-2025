@@ -82,3 +82,19 @@ exports.deleteNotas = async (req, res) => {
     });
   }
 };
+
+exports.deletarAluno = async (req, res) => {
+
+  try {
+    const id = req.params.id;
+    axios.delete(`${baseURL}/${id}`)
+
+    res.status(200).json({ mensagem: 'Aluno deletado com sucesso' });
+    
+  } catch (error) {
+    return res.status(400).json({
+      mensagem: 'Erro ao deletar',
+      erro: error.message,
+    });
+  }
+}

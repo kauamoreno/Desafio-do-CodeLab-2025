@@ -29,6 +29,7 @@
 | POST   | `/api/notas`                   | Cadastra um novo aluno                          |
 | GET    | `/api/estimaNota2?nota1=valor` | Retorna a estimativa da nota2 com base na nota1 |
 | DELETE | `/api/notas-delete`            | Remove todos os alunos (reset)                  |
+| DELETE | `/api/notas:id`                | Remove um aluno por vez (BONUS)                 |
 
 <br>
 

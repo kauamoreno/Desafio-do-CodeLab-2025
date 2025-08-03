@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
 
 router.get('/api/notas', notasController.getNotas);
 router.post('/api/notas', notasController.addNota);
-router.delete('/api/notas-delete', notasController.deleteNotas);
+router.delete('/api/notas/:id', notasController.deletarAluno); // Um aluno por vez
+router.delete('/api/notas-delete', notasController.deleteNotas); //Limpa completa
 
 module.exports = router;

@@ -44,16 +44,19 @@ async function buscaAlunos() {
 
   for (let i = 0; i < alunos.length; i++) {
     let media = (Number(alunos[i].notas[0]) + Number(alunos[i].notas[1])) / 2;
-    let situacao = media > 6 ? 'Aprovado' : 'Reprovado';
+    let situacao = media >= 7 ? 'Aprovado' : 'Reprovado';
     let classeSituacao =
       situacao === 'Aprovado' ? 'situacao-aprovado' : 'situacao-reprovado';
 
     listaAlunos.innerHTML += `
-        <div>
-            <p><b>Aluno:</b> ${alunos[i].nome}</p>
-            <p><b>Média:</b> ${media}</p>
-            <p><b>Situação:</b> <span class="${classeSituacao}">${situacao}</span></p>
+      <div class="linha-aluno">
+        <div class="info-aluno">
+          <p><b>Aluno:</b> ${alunos[i].nome}</p>
+          <p><b>Média:</b> ${media}</p>
+          <p><b>Situação:</b> <span class="${classeSituacao}">${situacao}</span></p>
         </div>
+        <button class="btn-apagar" onclick="deletarAluno('${alunos[i].id}')">Apagar</button>
+      </div>
     `;
   }
 
@@ -97,4 +100,16 @@ async function deletaTodoMundo() {
   btnApagarTudo.style = 'display: none';
 
   buscaAlunos();
+}
+
+async function deletarAluno(id) {
+  try {
+    const resposta = await axios.delete(`http://localhost:3000/api/notas/${id}`);
+
+    if (resposta.status === 200) {
+      buscaAlunos(); // Atualiza a lista de alunos
+    }
+  } catch (erro) {
+    console.log('Erro ao deletar aluno: ', erro);
+  }
 }
