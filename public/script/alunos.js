@@ -52,7 +52,7 @@ async function buscaAlunos() {
       <div class="linha-aluno">
         <div class="info-aluno">
           <p><b>Aluno:</b> ${alunos[i].nome}</p>
-          <p><b>Média:</b> ${media}</p>
+          <p><b>Média:</b> ${Number(media.toFixed(2))}</p>
           <p><b>Situação:</b> <span class="${classeSituacao}">${situacao}</span></p>
         </div>
         <button class="btn-apagar" onclick="deletarAluno('${alunos[i].id}')">Apagar</button>
