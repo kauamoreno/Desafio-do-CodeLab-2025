@@ -9,7 +9,7 @@ async function buscaAlunos() {
   let alunos;
 
   await axios
-    .get('http://localhost:3000/api/notas')
+    .get('https://desafio-codelab-2025.onrender.com/api/notas')
     .then((response) => {
       alunos = response.data;
       console.log(alunos);
@@ -87,7 +87,7 @@ function deletaPopup() {
 
 async function deletaTodoMundo() {
   await axios
-    .delete('http://localhost:3000/api/notas-delete')
+    .delete('https://desafio-codelab-2025.onrender.com/api/notas-delete')
     .then((response) => {
       console.log('Deletado com sucesso:', response.data);
     })
@@ -104,7 +104,7 @@ async function deletaTodoMundo() {
 
 async function deletarAluno(id) {
   try {
-    const resposta = await axios.delete(`http://localhost:3000/api/notas/${id}`);
+    const resposta = await axios.delete(`https://desafio-codelab-2025.onrender.com/api/notas/${id}`);
 
     if (resposta.status === 200) {
       buscaAlunos(); // Atualiza a lista de alunos

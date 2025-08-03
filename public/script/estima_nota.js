@@ -10,7 +10,7 @@ inputNota1.addEventListener('input', async () => {
     
     // Passa o nota1 na query string ?nota1=valor
     const nota1 = parseFloat(inputNota1.value);
-    const response = await axios.get('http://localhost:3000/api/estimaNota2', {
+    const response = await axios.get('https://desafio-codelab-2025.onrender.com/api/estimaNota2', {
       params: { nota1: nota1 },
     });
 
